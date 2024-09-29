@@ -1,4 +1,4 @@
-function date() {
+function date_decide(){
     let today = new Date();   
     let year = today.getFullYear();
     let month = today.getMonth() + 1;
@@ -6,7 +6,13 @@ function date() {
     let day_num = today.getDay();
     let day_strs = ['일', '월', '화', '수', '목', '금', '토'];
     let day = day_strs[day_num];
-    document.getElementById('dateDisplay').innerHTML = '오늘 날짜 : ' + year + '년 ' + month + '월 ' + date + '일 ' + day + '요일';
+    let date_now =  year + '년 ' + month + '월 ' + date + '일 ' + day + '요일';
+    return date_now
+}
+
+function date() {
+    date_now = date_decide();
+    document.getElementById('dateDisplay').innerHTML = '오늘 날짜 : ' + date_now;
 }
 
 window.onload = function() {
@@ -41,7 +47,11 @@ function createToDoList() {
 }
 
 function addTask(input, taskList) {
-    const taskText = input.value;
+    date_now = date_decide();
+    let today = new Date();   
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    const taskText = input.value+" : "+date_now+" "+hours+"시 "+minutes+"분 에 추가";
 
     if (taskText.trim() === "") {
         alert("할 일을 입력해주세요");
