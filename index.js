@@ -51,7 +51,7 @@ function addTask(input, taskList) {
     let today = new Date();   
     let hours = today.getHours();
     let minutes = today.getMinutes();
-    const taskText = input.value+" : "+date_now+" "+hours+"시 "+minutes+"분 에 추가";
+    const taskText = input.value+" : "+date_now+" "+hours+"시 "+minutes+"분에 추가";
 
     if (taskText.trim() === "") {
         alert("할 일을 입력해주세요");
